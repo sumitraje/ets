@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Replace 'refit_dataset.csv' with the path to your dataset file
+df = pd.read_csv("C:\Data\REFITPowerData111215\House1_AddHead.csv")
+print(df.head())
+
+print(df.info())
+print(df.describe())
+
+
+# Assuming the dataset has columns 'timestamp' and 'power'
+# df['DateTime'] = pd.to_datetime(df['DateTime'])
+plt.figure(figsize=(10, 6))
+sns.lineplot(x='DateTime', y='Aggregate', data=df)
+plt.xlabel('Time')
+plt.ylabel('Power Consumption (W)')
+plt.title('Power Consumption Over Time')
+plt.xticks(rotation=45)
+plt.show()
